@@ -1,15 +1,15 @@
 package SistemaBancario.Model;
 
 public class Usuario extends Pessoa {
-    
-    public Usuario(String nome, int idade, int CPF, int DataNascimento) {
+
+    private String senha;
+
+    public Usuario(String nome, int idade, int CPF, int DataNascimento, String senha) {
        super(nome, idade, CPF, DataNascimento);
+       this.senha = senha;
     }
 
-    public void dados() {
-        System.out.println(getNome());
-        System.out.println(getIdade());
-        System.out.println(getCPF());
-        System.out.println(getDataNascimento());
+    public boolean autenticar(int cpf, String senha) {
+        return this.getCPF() == cpf && this.senha.equals(senha);
     }
 }
